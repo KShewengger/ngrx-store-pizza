@@ -5,7 +5,11 @@
   "projects": {
     "ngrx-store-pizza": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -24,8 +28,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/css/style.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/",
+                "src/assets/styles",
+                "node_modules"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -119,6 +130,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ngrx-store-pizza"
+    }
+  },
+  "defaultProject": "ngrx-store-pizza",
+  "cli": {
+    "analytics": "f542b566-31f7-49f2-b222-94cb8b009ced"
+  }
 }

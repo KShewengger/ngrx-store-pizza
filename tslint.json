@@ -9,7 +9,7 @@
     },
     "array-type": false,
     "arrow-return-shorthand": true,
-    "curly": true,
+    "curly": false,
     "deprecation": {
       "severity": "warning"
     },
@@ -65,7 +65,7 @@
     ],
     "no-empty": false,
     "no-inferrable-types": [
-      true,
+      false,
       "ignore-params"
     ],
     "no-non-null-assertion": true,
@@ -135,6 +135,7 @@
     },
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
+    "no-trailing-whitespace": false,
     "no-input-rename": true,
     "no-inputs-metadata-property": true,
     "no-output-native": true,
