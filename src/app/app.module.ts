@@ -1,22 +1,18 @@
-import { NgModule, InjectionToken } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
 import { AppRoutingModule } from '@app/app-routing.module';
 
 import { environment } from '@environments/environment';
 
-import { META_REDUCERS } from '@shared/config/meta.config';
+import { META_REDUCERS, STORE_INSTRUMENT } from '@shared/config/ngrx.config';
 import { API_URL } from '@shared/config/token.config';
 
 import { AppComponent } from '@index/app.component';
-
-const InstrumentModule = !environment.production ? StoreDevtoolsModule.instrument() : [];
 
 
 @NgModule({
@@ -25,7 +21,7 @@ const InstrumentModule = !environment.production ? StoreDevtoolsModule.instrumen
     BrowserAnimationsModule,
     StoreModule.forRoot({}, { metaReducers: META_REDUCERS }),
     EffectsModule.forRoot([]),
-    InstrumentModule,
+    STORE_INSTRUMENT,
     AppRoutingModule
   ],
   declarations: [ AppComponent ],

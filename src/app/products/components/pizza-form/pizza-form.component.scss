@@ -1,7 +1,9 @@
 .pizza-form {
+
   ::ng-deep pizza-display {
     margin: 0 0 35px;
   }
+
   label {
     margin: 0 0 35px;
     display: block;
@@ -9,6 +11,7 @@
       margin: 0 0 15px;
     }
   }
+
   &__error {
     padding: 10px;
     border-radius: 0 0 4px 4px;
@@ -23,6 +26,7 @@
       margin: 0;
     }
   }
+
   &__input {
     border: 0;
     margin: 0;
@@ -39,6 +43,7 @@
       border-color: #b54846;
     }
   }
+
   &__actions {
     margin: 35px 0 0;
     display: flex;
@@ -50,7 +55,9 @@
       }
     }
   }
+
   &__list {
     margin: -20px 0 0;
   }
+
 }

@@ -1,10 +1,12 @@
 :host {
   display: block;
 }
+
 .pizza-toppings {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
   &-item {
     position: relative;
     display: flex;
@@ -19,8 +21,10 @@
     flex: 0 0 23%;
     transition: all 0.2s ease;
     cursor: pointer;
+
     &.active {
       background: #f5f5f5;
+
       &:after {
         content: '';
         border-radius: 50%;
@@ -34,9 +38,11 @@
         background-size: 10px;
       }
     }
+
     img {
       width: 22px;
       margin: 0 10px 0 0;
     }
   }
+
 }

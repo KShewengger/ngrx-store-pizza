@@ -1,14 +1,17 @@
 <div class="pizza-form">
+
   <form [formGroup]="form">
 
     <label>
       <h4>Pizza name</h4>
+
       <input
         type="text"
         formControlName="name"
         placeholder="e.g. Pepperoni"
         class="pizza-form__input"
         [class.error]="nameControlInvalid">
+
       <div
         class="pizza-form__error"
         *ngIf="nameControlInvalid">
@@ -21,6 +24,7 @@
     <label>
       <h4>Select toppings</h4>
     </label>
+
     <div class="pizza-form__list">
 
       <app-pizza-toppings

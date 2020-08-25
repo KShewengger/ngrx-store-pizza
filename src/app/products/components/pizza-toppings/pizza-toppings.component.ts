@@ -42,7 +42,7 @@ export class PizzaToppingsComponent implements ControlValueAccessor {
   selectTopping(topping: Topping): void {
     this.value = this.existsInToppings(topping)
       ? this.value.filter(item => item.id !== topping.id)
-      : [...this.value, topping]
+      : [...this.value, topping];
 
     this.onTouch();
     this.onModelChange(this.value);

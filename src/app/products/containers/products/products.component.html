@@ -1,4 +1,5 @@
 <div class="products">
+
   <div class="products__new">
     <a
       class="btn btn__ok"
@@ -6,13 +7,18 @@
       New Pizza
     </a>
   </div>
+
   <div class="products__list">
+
     <div *ngIf="!((pizzas)?.length)">
       No pizzas, add one to get started.
     </div>
+
     <app-pizza-item
       *ngFor="let pizza of (pizzas)"
       [pizza]="pizza">
     </app-pizza-item>
+
   </div>
+
 </div>
