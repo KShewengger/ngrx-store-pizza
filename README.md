@@ -1,5 +1,5 @@
 # Ngrx Store Pizza
-> An @ngrx/store pizza-inspired application from Todd Motto's UltimateCourses with enhanced implementation using Angular 10 and Angular CLI.
+> An NgRx pizza-inspired application from Todd Motto's UltimateCourses using NgRx Store, Effects and Router Store with enhanced implementation using Angular 10 and Angular CLI.
 
 #### Tools used:
 `Angular 10` `Angular CLI` `RxJS` `NgRx Effects` `NgRx Router Store` `NgRx Store` `NgRx Store DevTools` `NgRx Store Freeze` `JSON Server`
