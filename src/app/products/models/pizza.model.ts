@@ -6,3 +6,9 @@ export interface Pizza {
   name?: string;
   toppings?: Topping[];
 }
+
+export interface PizzaState {
+  data: Pizza[];
+  loaded: boolean;
+  loading: boolean;
+}
