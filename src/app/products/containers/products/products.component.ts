@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Pizza } from '@products/models/pizza.model';
-import { PizzasService } from '@products/services/pizzas.service';
+import { Observable } from 'rxjs';
+
+import { Store } from '@ngrx/store';
+
+import { Pizza, ProductsState } from '@app/products/models';
+import { getAllPizzas } from '@products/store';
 
 
 @Component({
@@ -11,18 +15,12 @@ import { PizzasService } from '@products/services/pizzas.service';
 })
 export class ProductsComponent implements OnInit {
 
-  pizzas: Pizza[];
+  pizzas$: Observable<Pizza[]>;
 
-  constructor(private pizzaService: PizzasService) {}
+  constructor(private store: Store<ProductsState>) {}
 
   ngOnInit(): void {
-    this.initializeData();
-  }
-
-  initializeData(): void {
-    this.pizzaService
-      .getPizzas()
-      .subscribe(pizzas => this.pizzas = pizzas);
+    this.pizzas$ = this.store.select(getAllPizzas);
   }
 
 }

@@ -160,6 +160,22 @@
         {
           "id": 3,
           "name": "basil"
+        },
+        {
+          "id": 7,
+          "name": "olive"
+        },
+        {
+          "id": 10,
+          "name": "pepperoni"
+        },
+        {
+          "id": 6,
+          "name": "mushroom"
+        },
+        {
+          "id": 1,
+          "name": "anchovy"
         }
       ],
       "id": 4

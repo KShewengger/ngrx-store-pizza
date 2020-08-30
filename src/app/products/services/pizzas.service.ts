@@ -25,25 +25,25 @@ export class PizzasService {
   getPizzas(): Observable<Pizza[]> {
     return this.http
       .get<Pizza[]>(this.pizzaApiRoute())
-      .pipe(catchError((error: any) => throwError(error.json())));
+      .pipe(catchError((error: any) => throwError(error)));
   }
 
   createPizza(payload: Pizza): Observable<Pizza> {
     return this.http
       .post<Pizza>(this.pizzaApiRoute(), payload)
-      .pipe(catchError((error: any) => throwError(error.json())));
+      .pipe(catchError((error: any) => throwError(error)));
   }
 
   updatePizza(payload: Pizza): Observable<Pizza> {
     return this.http
       .put<Pizza>(this.pizzaApiRoute(payload.id), payload)
-      .pipe(catchError((error: any) => throwError(error.json())));
+      .pipe(catchError((error: any) => throwError(error)));
   }
 
   removePizza(payload: Pizza): Observable<Pizza> {
     return this.http
       .delete<any>(this.pizzaApiRoute(payload.id))
-      .pipe(catchError((error: any) => throwError(error.json())));
+      .pipe(catchError((error: any) => throwError(error)));
   }
 
 }
