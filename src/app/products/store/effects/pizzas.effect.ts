@@ -22,13 +22,12 @@ export class PizzasEffects {
   loadPizzas$ = this.actions$
     .pipe(
       ofType(pizzaActions.LOAD_PIZZAS),
-      switchMap(() => {
-        return this.pizzaService
-          .getPizzas()
-          .pipe(
-            map(pizzas => new pizzaActions.LoadPizzasSuccess(pizzas)),
-            catchError(error => of(new pizzaActions.LoadPizzasFail(error)))
-          );
-      })
+      switchMap(() => this.pizzaService
+        .getPizzas()
+        .pipe(
+          map(pizzas => new pizzaActions.LoadPizzasSuccess(pizzas)),
+          catchError(error => of(new pizzaActions.LoadPizzasFail(error)))
+        )
+      )
     );
 }

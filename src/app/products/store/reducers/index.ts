@@ -23,13 +23,5 @@ export const getPizzaState = createSelector(
 );
 
 export const getAllPizzas = createSelector(getPizzaState, pizzaReducer.getPizzas);
-
-export const getPizzasLoaded = createSelector(
-  getPizzaState,
-  pizzaReducer.getPizzasLoaded
-);
-
-export const getPizzasLoading = createSelector(
-  getPizzaState,
-  pizzaReducer.getPizzasLoading
-);
+export const getPizzasLoaded = createSelector(getPizzaState, pizzaReducer.getPizzasLoaded);
+export const getPizzasLoading = createSelector(getPizzaState, pizzaReducer.getPizzasLoading);
