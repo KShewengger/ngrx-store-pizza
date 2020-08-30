@@ -74,10 +74,13 @@ export function reducer(state: PizzaState = initialState, action: Action.PizzasA
     }
 
     case Action.LOAD_PIZZAS_SUCCESS: {
+      const data = action.payload;
+
       return {
         ...state,
         loading: false,
-        loaded: true
+        loaded: true,
+        data
       };
     }
 

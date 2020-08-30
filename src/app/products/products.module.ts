@@ -4,10 +4,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 import { ProductsRoutingModule } from '@products/products-routing.module';
 
-import { reducers } from '@products/store';
+import { reducers, effects } from '@products/store';
 import { components } from '@products/components';
 import { containers } from '@products/containers';
 import { providers } from '@products/services';
@@ -20,6 +21,7 @@ import { providers } from '@products/services';
     HttpClientModule,
     ProductsRoutingModule,
     StoreModule.forFeature('products', reducers),
+    EffectsModule.forFeature(effects)
   ],
   providers,
   declarations: [

@@ -8,14 +8,15 @@
     </a>
   </div>
 
-  <div class="products__list">
+  <div class="products__list"
+       *ngIf="(pizzas$ | async) as pizzas">
 
-    <div *ngIf="!((pizzas$ | async)?.length)">
+    <div *ngIf="!pizzas?.length">
       No pizzas, add one to get started.
     </div>
 
     <app-pizza-item
-      *ngFor="let pizza of (pizzas$ | async)"
+      *ngFor="let pizza of pizzas"
       [pizza]="pizza">
     </app-pizza-item>
 
