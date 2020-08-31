@@ -22,6 +22,14 @@ export const getPizzaState = createSelector(
   (state: ProductsState) => state.pizzas
 );
 
-export const getAllPizzas = createSelector(getPizzaState, pizzaReducer.getPizzas);
+export const getPizzasEntities = createSelector(
+  getPizzaState,
+  pizzaReducer.getPizzasEntities
+);
+
+export const getAllPizzas = createSelector(getPizzasEntities, entities => Object
+  .keys(entities)
+  .map(id => entities[parseInt(id, 10)]));
+
 export const getPizzasLoaded = createSelector(getPizzaState, pizzaReducer.getPizzasLoaded);
 export const getPizzasLoading = createSelector(getPizzaState, pizzaReducer.getPizzasLoading);

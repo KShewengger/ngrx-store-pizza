@@ -8,7 +8,7 @@ export interface Pizza {
 }
 
 export interface PizzaState {
-  data: Pizza[];
+  entities: { [id: number]: Pizza };
   loaded: boolean;
   loading: boolean;
 }

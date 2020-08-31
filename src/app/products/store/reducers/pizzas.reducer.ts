@@ -1,9 +1,9 @@
 import * as Action from '@products/store/actions/pizzas.action';
-import { PizzaState } from '@products/models/pizza.model';
+import { Pizza, PizzaState } from '@products/models/pizza.model';
 
 
 export const initialState: PizzaState = {
-  data: [],
+  entities: {},
   loaded: false,
   loading: false,
 };
@@ -19,13 +19,17 @@ export function reducer(state: PizzaState = initialState, action: Action.PizzasA
     }
 
     case Action.LOAD_PIZZAS_SUCCESS: {
-      const data = action.payload;
+      const pizzaEntities = action.payload
+        .reduce((entities: { [id: number]: Pizza }, pizza: Pizza) =>
+          ({...entities, [pizza.id]: pizza}),
+          { ...state.entities }
+        );
 
       return {
         ...state,
         loading: false,
         loaded: true,
-        data
+        entities: pizzaEntities
       };
     }
 
@@ -45,4 +49,4 @@ export function reducer(state: PizzaState = initialState, action: Action.PizzasA
 
 export const getPizzasLoading = (state: PizzaState) => state.loading;
 export const getPizzasLoaded = (state: PizzaState) => state.loaded;
-export const getPizzas = (state: PizzaState) => state.data;
+export const getPizzasEntities = (state: PizzaState) => state.entities;
