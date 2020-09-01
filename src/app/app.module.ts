@@ -12,7 +12,7 @@ import { environment } from '@environments/environment';
 import { META_REDUCERS, STORE_INSTRUMENT } from '@shared/config/ngrx.config';
 import { API_URL } from '@shared/config/token.config';
 
-import { AppComponent } from '@index/app.component';
+import { AppComponent } from '@index/container/app.component';
 
 
 @NgModule({
