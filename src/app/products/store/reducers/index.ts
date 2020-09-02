@@ -12,9 +12,7 @@ export const reducers: ActionReducerMap<ProductsState> = {
   pizzas: pizzaReducer.reducer,
 };
 
-export const getProductsState = createFeatureSelector<ProductsState>(
-  'products'
-);
+export const getProductsState = createFeatureSelector<ProductsState>('products');
 
 // pizzas state
 export const getPizzaState = createSelector(
@@ -22,10 +20,7 @@ export const getPizzaState = createSelector(
   (state: ProductsState) => state.pizzas
 );
 
-export const getPizzasEntities = createSelector(
-  getPizzaState,
-  pizzaReducer.getPizzasEntities
-);
+export const getPizzasEntities = createSelector(getPizzaState, pizzaReducer.getPizzasEntities);
 
 export const getAllPizzas = createSelector(getPizzasEntities, entities => Object
   .keys(entities)

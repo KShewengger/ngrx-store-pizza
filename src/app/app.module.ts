@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule, RouterStateSerializer } from '@ngrx/router-store';
 
 import { AppRoutingModule } from '@app/app-routing.module';
 
@@ -13,20 +14,23 @@ import { META_REDUCERS, STORE_INSTRUMENT } from '@shared/config/ngrx.config';
 import { API_URL } from '@shared/config/token.config';
 
 import { AppComponent } from '@index/container/app.component';
+import { reducers, CustomSerializer } from '@index/store';
 
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({}, { metaReducers: META_REDUCERS }),
+    StoreModule.forRoot(reducers, { metaReducers: META_REDUCERS }),
     EffectsModule.forRoot([]),
+    StoreRouterConnectingModule.forRoot(),
     STORE_INSTRUMENT,
     AppRoutingModule
   ],
   declarations: [ AppComponent ],
   providers: [
-    { provide: API_URL, useValue: environment.apiUrl }
+    { provide: API_URL, useValue: environment.apiUrl },
+    { provide: RouterStateSerializer, useClass: CustomSerializer }
   ],
   bootstrap: [ AppComponent ],
 })
