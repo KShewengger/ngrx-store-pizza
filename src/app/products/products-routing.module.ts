@@ -10,13 +10,13 @@ const routes: Routes = [
     component: containers.ProductsComponent,
   },
   {
-    path: ':id',
-    component: containers.ProductItemComponent,
-  },
-  {
     path: 'new',
     component: containers.ProductItemComponent,
   },
+  {
+    path: ':pizzaId',
+    component: containers.ProductItemComponent,
+  }
 ];
 
 
