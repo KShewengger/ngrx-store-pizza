@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 
 import { Pizza, ProductsState, Topping } from '@products/models';
 
-import { getSelectedPizza } from '@products/store';
+import { getSelectedPizza, LoadToppings } from '@products/store';
 
 
 @Component({
@@ -23,6 +23,8 @@ export class ProductItemComponent implements OnInit {
   constructor(private store: Store<ProductsState>) {}
 
   ngOnInit(): void {
+    this.store.dispatch(new LoadToppings());
+
     this.pizza$ = this.store.select(getSelectedPizza);
   }
 
