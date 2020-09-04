@@ -16,6 +16,11 @@ export const getToppingEntities = createSelector(
   ToppingsReducer.getToppingEntities
 );
 
+export const getSelectedToppings = createSelector(
+  getToppingsState,
+  ToppingsReducer.getSelectedToppings
+);
+
 export const getAllToppings = createSelector(
   getToppingEntities,
   entities => Object.keys(entities).map(id => entities[parseInt(id, 10)])

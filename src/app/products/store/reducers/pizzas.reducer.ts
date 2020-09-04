@@ -1,5 +1,6 @@
 import * as Action from '@products/store/actions/pizzas.action';
-import { Pizza, PizzaState } from '@products/models/pizza.model';
+
+import { Pizza, PizzaState } from '@products/models';
 
 
 export const initialState: PizzaState = {

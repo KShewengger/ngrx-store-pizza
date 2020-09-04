@@ -8,4 +8,5 @@ export interface ToppingsState {
   entities: { [id: number]: Topping };
   loaded: boolean;
   loading: boolean;
+  selectedToppings: number[];
 }
