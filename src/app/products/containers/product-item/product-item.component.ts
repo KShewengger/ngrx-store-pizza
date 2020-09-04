@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 
 import { Pizza, ProductsState, Topping } from '@products/models';
 
-import { getSelectedPizza, LoadToppings } from '@products/store';
+import { getSelectedPizza, getAllToppings, LoadToppings } from '@products/store';
 
 
 @Component({
@@ -17,8 +17,8 @@ import { getSelectedPizza, LoadToppings } from '@products/store';
 export class ProductItemComponent implements OnInit {
 
   pizza$: Observable<Pizza>;
+  toppings$: Observable<Topping[]>;
   visualise: Pizza;
-  toppings: Topping[];
 
   constructor(private store: Store<ProductsState>) {}
 
@@ -26,6 +26,7 @@ export class ProductItemComponent implements OnInit {
     this.store.dispatch(new LoadToppings());
 
     this.pizza$ = this.store.select(getSelectedPizza);
+    this.toppings$ = this.store.select(getAllToppings);
   }
 
   onSelect(event: number[]): void {}
