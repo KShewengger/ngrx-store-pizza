@@ -10,7 +10,7 @@ import { AppRoutingModule } from '@app/app-routing.module';
 
 import { environment } from '@environments/environment';
 
-import { META_REDUCERS, STORE_INSTRUMENT } from '@shared/config/ngrx.config';
+import { META_REDUCERS as metaReducers, STORE_INSTRUMENT } from '@shared/config/ngrx.config';
 import { API_URL } from '@shared/config/token.config';
 
 import { AppComponent } from '@index/container/app.component';
@@ -21,7 +21,7 @@ import { reducers, CustomSerializer } from '@index/store';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot(reducers, { metaReducers: META_REDUCERS }),
+    StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),
     STORE_INSTRUMENT,

@@ -19,9 +19,10 @@ export function reducer(state: PizzaState = initialState, action: Action.PizzasA
     }
 
     case Action.LOAD_PIZZAS_SUCCESS: {
-      const pizzaEntities = action.payload
-        .reduce((entities: { [id: number]: Pizza }, pizza: Pizza) =>
-          ({...entities, [pizza.id]: pizza}),
+      const entities = action
+        .payload
+        .reduce((stateEntities: { [id: number]: Pizza }, pizza: Pizza) =>
+          ({...stateEntities, [pizza.id]: pizza}),
           { ...state.entities }
         );
 
@@ -29,7 +30,7 @@ export function reducer(state: PizzaState = initialState, action: Action.PizzasA
         ...state,
         loading: false,
         loaded: true,
-        entities: pizzaEntities
+        entities
       };
     }
 
