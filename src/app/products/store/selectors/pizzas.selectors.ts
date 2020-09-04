@@ -1,15 +1,15 @@
 import { createSelector } from '@ngrx/store';
 
-import * as IndexStore from '@index/store';
+import { getRouterState } from '@index/store';
 import * as ProductsReducer from '@products/store/reducers';
 import * as PizzasReducer from '@products/store/reducers/pizzas.reducer';
 
-import { Pizza } from '@products/models/pizza.model';
+import { Pizza, ProductsState } from '@products/models';
 
 
 export const getPizzaState = createSelector(
   ProductsReducer.getProductsState,
-  (state: ProductsReducer.ProductsState) => state.pizzas
+  (state: ProductsState) => state.pizzas
 );
 
 export const getPizzasEntities = createSelector(
@@ -19,7 +19,7 @@ export const getPizzasEntities = createSelector(
 
 export const getSelectedPizza = createSelector(
   getPizzasEntities,
-  IndexStore.getRouterState,
+  getRouterState,
   (entities, router): Pizza => router.state && entities[router.state.params.pizzaId]
 );
 

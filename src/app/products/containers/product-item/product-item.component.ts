@@ -4,10 +4,9 @@ import { Observable } from 'rxjs';
 
 import { Store } from '@ngrx/store';
 
-import { Pizza } from '@products/models/pizza.model';
-import { Topping } from '@products/models/topping.model';
+import { Pizza, ProductsState, Topping } from '@products/models';
 
-import { ProductsState, getSelectedPizza } from '@products/store';
+import { getSelectedPizza } from '@products/store';
 
 
 @Component({
