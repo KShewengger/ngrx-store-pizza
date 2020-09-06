@@ -7,7 +7,7 @@ import { Store } from '@ngrx/store';
 
 import { Pizza, ProductsState, Topping } from '@products/models';
 
-import { getSelectedPizza, getAllToppings, getPizzaVisualised, VisualiseToppings } from '@products/store';
+import { getSelectedPizza, getAllToppings, getPizzaVisualised, VisualiseToppings, CreatePizza } from '@products/store';
 
 
 @Component({
@@ -47,7 +47,9 @@ export class ProductItemComponent implements OnInit {
     this.store.dispatch(new VisualiseToppings(event));
   }
 
-  onCreate(event: Pizza): void {}
+  onCreate(event: Pizza): void {
+    this.store.dispatch(new CreatePizza(event));
+  }
 
   onUpdate(event: Pizza): void {}
 

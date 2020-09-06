@@ -7,7 +7,7 @@ import { Effect, Actions, ofType } from '@ngrx/effects';
 
 import { PizzasService } from '@products/services';
 
-import { LoadPizzasSuccess, LoadPizzasFail, LOAD_PIZZAS } from '@products/store/actions/pizzas.action';
+import * as PizzasAction from '@products/store/actions/pizzas.action';
 
 
 @Injectable()
@@ -21,13 +21,27 @@ export class PizzasEffects {
   @Effect()
   loadPizzas$ = this.actions$
     .pipe(
-      ofType(LOAD_PIZZAS),
+      ofType(PizzasAction.LOAD_PIZZAS),
       switchMap(() => this.pizzaService
         .getPizzas()
         .pipe(
-          map(pizzas => new LoadPizzasSuccess(pizzas)),
-          catchError(error => of(new LoadPizzasFail(error)))
+          map(pizzas => new PizzasAction.LoadPizzasSuccess(pizzas)),
+          catchError(error => of(new PizzasAction.LoadPizzasFail(error)))
         )
+      )
+    );
+
+  @Effect()
+  createPizza$ = this.actions$
+    .pipe(
+      ofType(PizzasAction.CREATE_PIZZA),
+      map((action: PizzasAction.CreatePizza) => action.payload),
+      switchMap(pizza => this.pizzaService
+          .createPizza(pizza)
+          .pipe(
+            map(item => new PizzasAction.CreatePizzaSuccess(item)),
+            catchError(error => of(new PizzasAction.CreatePizzaFail(error)))
+          )
       )
     );
 }
