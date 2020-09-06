@@ -59,7 +59,7 @@ export class ProductItemComponent implements OnInit {
     const remove = window.confirm('Are you sure?');
 
     if (remove) {
-
+      this.store.dispatch(new ProductsStore.RemovePizza(event));
     }
   }
 

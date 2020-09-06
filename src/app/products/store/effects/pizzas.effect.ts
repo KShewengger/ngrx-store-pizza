@@ -37,11 +37,11 @@ export class PizzasEffects {
       ofType(PizzasAction.CREATE_PIZZA),
       map((action: PizzasAction.CreatePizza) => action.payload),
       switchMap(pizza => this.pizzaService
-          .createPizza(pizza)
-          .pipe(
-            map(item => new PizzasAction.CreatePizzaSuccess(item)),
-            catchError(error => of(new PizzasAction.CreatePizzaFail(error)))
-          )
+        .createPizza(pizza)
+        .pipe(
+          map(item => new PizzasAction.CreatePizzaSuccess(item)),
+          catchError(error => of(new PizzasAction.CreatePizzaFail(error)))
+        )
       )
     );
 
@@ -50,13 +50,27 @@ export class PizzasEffects {
     .pipe(
       ofType(PizzasAction.UPDATE_PIZZA),
       map((action: PizzasAction.UpdatePizza) => action.payload),
-      switchMap(pizza => {
-        return this.pizzaService
-          .updatePizza(pizza)
-          .pipe(
-            map(item => new PizzasAction.UpdatePizzaSuccess(item)),
-            catchError(error => of(new PizzasAction.UpdatePizzaFail(error)))
-          );
-      })
+      switchMap(pizza => this.pizzaService
+        .updatePizza(pizza)
+        .pipe(
+          map(item => new PizzasAction.UpdatePizzaSuccess(item)),
+          catchError(error => of(new PizzasAction.UpdatePizzaFail(error)))
+        )
+      )
   );
+
+  @Effect()
+  removePizza$ = this.actions$
+    .pipe(
+      ofType(PizzasAction.REMOVE_PIZZA),
+      map((action: PizzasAction.RemovePizza) => action.payload),
+      switchMap(pizza => this.pizzaService
+        .removePizza(pizza)
+        .pipe(
+          map(() => new PizzasAction.RemovePizzaSuccess(pizza)),
+          catchError(error => of(new PizzasAction.RemovePizzaFail(error)))
+        )
+      )
+  );
+
 }
