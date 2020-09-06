@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 import { Store } from '@ngrx/store';
 
 import { Pizza, ProductsState, Topping } from '@products/models';
 
-import { getSelectedPizza, getAllToppings, LoadToppings } from '@products/store';
+import { getSelectedPizza, getAllToppings, getPizzaVisualised, VisualiseToppings } from '@products/store';
 
 
 @Component({
@@ -18,19 +19,32 @@ export class ProductItemComponent implements OnInit {
 
   pizza$: Observable<Pizza>;
   toppings$: Observable<Topping[]>;
-  visualise: Pizza;
+  visualise$: Observable<Pizza>;
 
   constructor(private store: Store<ProductsState>) {}
 
   ngOnInit(): void {
-    this.store.dispatch(new LoadToppings());
+    this.initializeData();
+  }
 
-    this.pizza$ = this.store.select(getSelectedPizza);
+  initializeData(): void {
+    this.pizza$ = this.store.select(getSelectedPizza).pipe(
+      tap((pizza: Pizza = null) => {
+        const pizzaExists = !!(pizza && pizza.toppings);
+        const toppings = pizzaExists
+          ? pizza.toppings.map(topping => topping.id)
+          : [];
+
+        this.store.dispatch(new VisualiseToppings(toppings));
+      })
+    );
+
     this.toppings$ = this.store.select(getAllToppings);
+    this.visualise$ = this.store.select(getPizzaVisualised);
   }
 
   onSelect(event: number[]): void {
-    console.log('onSelect:::', event);
+    this.store.dispatch(new VisualiseToppings(event));
   }
 
   onCreate(event: Pizza): void {}
@@ -39,6 +53,7 @@ export class ProductItemComponent implements OnInit {
 
   onRemove(event: Pizza): void {
     const remove = window.confirm('Are you sure?');
+
     if (remove) {
 
     }
