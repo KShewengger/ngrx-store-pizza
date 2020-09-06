@@ -133,15 +133,15 @@
       "id": 3
     },
     {
-      "name": "Basil",
+      "name": "Chili Pizza",
       "toppings": [
         {
           "id": 3,
           "name": "basil"
         },
         {
-          "id": 7,
-          "name": "olive"
+          "id": 4,
+          "name": "chili"
         }
       ],
       "id": 4

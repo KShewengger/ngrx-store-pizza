@@ -7,7 +7,7 @@ import { Store } from '@ngrx/store';
 
 import { Pizza, ProductsState, Topping } from '@products/models';
 
-import { getSelectedPizza, getAllToppings, getPizzaVisualised, VisualiseToppings, CreatePizza } from '@products/store';
+import * as ProductsStore from '@products/store';
 
 
 @Component({
@@ -28,30 +28,32 @@ export class ProductItemComponent implements OnInit {
   }
 
   initializeData(): void {
-    this.pizza$ = this.store.select(getSelectedPizza).pipe(
+    this.pizza$ = this.store.select(ProductsStore.getSelectedPizza).pipe(
       tap((pizza: Pizza = null) => {
         const pizzaExists = !!(pizza && pizza.toppings);
         const toppings = pizzaExists
           ? pizza.toppings.map(topping => topping.id)
           : [];
 
-        this.store.dispatch(new VisualiseToppings(toppings));
+        this.store.dispatch(new ProductsStore.VisualiseToppings(toppings));
       })
     );
 
-    this.toppings$ = this.store.select(getAllToppings);
-    this.visualise$ = this.store.select(getPizzaVisualised);
+    this.toppings$ = this.store.select(ProductsStore.getAllToppings);
+    this.visualise$ = this.store.select(ProductsStore.getPizzaVisualised);
   }
 
   onSelect(event: number[]): void {
-    this.store.dispatch(new VisualiseToppings(event));
+    this.store.dispatch(new ProductsStore.VisualiseToppings(event));
   }
 
   onCreate(event: Pizza): void {
-    this.store.dispatch(new CreatePizza(event));
+    this.store.dispatch(new ProductsStore.CreatePizza(event));
   }
 
-  onUpdate(event: Pizza): void {}
+  onUpdate(event: Pizza): void {
+    this.store.dispatch(new ProductsStore.UpdatePizza(event));
+  }
 
   onRemove(event: Pizza): void {
     const remove = window.confirm('Are you sure?');
