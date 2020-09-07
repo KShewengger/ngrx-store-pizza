@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Store } from '@ngrx/store';
 
-import { Pizza, ProductsState } from '@app/products/models';
+import { Pizza, ProductsState } from '@products/models';
 import { getAllPizzas, LoadToppings } from '@products/store';
 
 
