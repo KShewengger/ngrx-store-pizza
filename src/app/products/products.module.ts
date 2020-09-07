@@ -12,6 +12,7 @@ import { reducers, effects } from '@products/store';
 import { components } from '@products/components';
 import { containers } from '@products/containers';
 import { providers } from '@products/services';
+import { guards } from '@products/guards';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { providers } from '@products/services';
     StoreModule.forFeature('products', reducers),
     EffectsModule.forFeature(effects)
   ],
-  providers,
+  providers: [ ...providers, ...guards ],
   declarations: [
     ...containers,
     ...components
