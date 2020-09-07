@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
@@ -12,6 +12,7 @@ import { getAllPizzas } from '@products/store';
   selector: 'app-products',
   styleUrls: ['products.component.scss'],
   templateUrl: './products.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductsComponent implements OnInit {
 

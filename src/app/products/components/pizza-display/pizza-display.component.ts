@@ -6,7 +6,7 @@ import { DROP_ANIMATION } from './pizza-display.animation';
 
 @Component({
   selector: 'app-pizza-display',
-  animations: [DROP_ANIMATION],
+  animations: [ DROP_ANIMATION ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['pizza-display.component.scss'],
   templateUrl: './pizza-display.component.html',

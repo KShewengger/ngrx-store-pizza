@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -14,6 +14,7 @@ import * as ProductsStore from '@products/store';
   selector: 'app-product-item',
   styleUrls: ['product-item.component.scss'],
   templateUrl: './product-item.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductItemComponent implements OnInit {
 

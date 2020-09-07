@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { map } from 'rxjs/operators';
@@ -11,6 +11,7 @@ import { Topping } from '@products/models/topping.model';
   selector: 'app-pizza-form',
   styleUrls: ['pizza-form.component.scss'],
   templateUrl: './pizza-form.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PizzaFormComponent implements OnChanges {
 
