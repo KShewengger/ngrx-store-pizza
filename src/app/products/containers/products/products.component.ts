@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import { Pizza, ProductsState } from '@products/models';
-import { getAllPizzas, LoadToppings } from '@products/store';
+import { getAllPizzas } from '@products/store';
 
 
 @Component({
@@ -21,8 +21,6 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.pizzas$ = this.store.select(getAllPizzas);
-
-    this.store.dispatch(new LoadToppings());
   }
 
 }

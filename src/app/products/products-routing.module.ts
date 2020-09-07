@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import * as containers from './containers';
-import { PizzasGuard, PizzaExistsGuard } from '@products/guards';
+import { PizzasGuard, PizzaExistsGuard, ToppingsGuard } from '@products/guards';
 
 
 const routes: Routes = [
@@ -14,12 +14,12 @@ const routes: Routes = [
   {
     path: 'new',
     component: containers.ProductItemComponent,
-    canActivate: [ PizzasGuard ]
+    canActivate: [ PizzasGuard, ToppingsGuard ]
   },
   {
     path: ':pizzaId',
     component: containers.ProductItemComponent,
-    canActivate: [ PizzaExistsGuard ]
+    canActivate: [ PizzaExistsGuard, ToppingsGuard ]
   }
 ];
 
