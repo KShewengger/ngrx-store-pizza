@@ -8,7 +8,7 @@ import { Effect, Actions, ofType } from '@ngrx/effects';
 import { Go } from '@index/store';
 
 import { PizzasService } from '@products/services';
-import * as PizzasAction from '@products/store/actions/pizzas.action';
+import * as PizzasAction from '@products/store/actions/pizzas/pizzas.action';
 
 
 @Injectable()
@@ -89,7 +89,7 @@ export class PizzasEffects {
         PizzasAction.UPDATE_PIZZA_SUCCESS,
         PizzasAction.REMOVE_PIZZA_SUCCESS
       ),
-      map(pizza => new Go({ path: ['/products'] }))
+      map(() => new Go({ path: ['/products'] }))
     );
 
 }

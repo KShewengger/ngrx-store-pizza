@@ -5,7 +5,7 @@ import { Effect, Actions, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { map, catchError, switchMap } from 'rxjs/operators';
 
-import { LOAD_TOPPINGS, LoadToppingsSuccess, LoadToppingsFail } from '@products/store/actions/toppings.action';
+import { LOAD_TOPPINGS, LoadToppingsSuccess, LoadToppingsFail } from '@products/store/actions/toppings/toppings.action';
 import { ToppingsService } from '@products/services/toppings.service';
 
 

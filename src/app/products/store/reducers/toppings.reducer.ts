@@ -1,4 +1,4 @@
-import * as Action from '@products/store/actions/toppings.action';
+import * as Action from '@products/store/actions/toppings/toppings.action';
 
 import { Topping, ToppingsState } from '@products/models';
 

@@ -1,4 +1,4 @@
-import * as Action from '@products/store/actions/pizzas.action';
+import * as Action from '@products/store/actions/pizzas/pizzas.action';
 
 import { Pizza, PizzaState } from '@products/models';
 
