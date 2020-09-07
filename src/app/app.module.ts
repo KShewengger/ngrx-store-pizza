@@ -14,7 +14,7 @@ import { META_REDUCERS as metaReducers, STORE_INSTRUMENT } from '@shared/config/
 import { API_URL } from '@shared/config/token.config';
 
 import { AppComponent } from '@index/container/app.component';
-import { reducers, CustomSerializer } from '@index/store';
+import { reducers, CustomSerializer, effects } from '@index/store';
 
 
 @NgModule({
@@ -22,7 +22,7 @@ import { reducers, CustomSerializer } from '@index/store';
     BrowserModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot(effects),
     StoreRouterConnectingModule.forRoot(),
     STORE_INSTRUMENT,
     AppRoutingModule
