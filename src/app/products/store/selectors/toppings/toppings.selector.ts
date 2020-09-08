@@ -3,7 +3,7 @@ import { createSelector } from '@ngrx/store';
 import { ProductsState } from '@products/models';
 
 import { getProductsState, } from '@products/store/reducers';
-import { getSelectedPizza } from './pizzas.selector';
+import { getSelectedPizza } from '@products/store/selectors/pizzas/pizzas.selector';
 import * as ToppingsReducer from '@products/store/reducers/toppings/toppings.reducer';
 
 
