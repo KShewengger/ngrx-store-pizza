@@ -4,7 +4,7 @@ import { ProductsState } from '@products/models';
 
 import { getProductsState, } from '@products/store/reducers';
 import { getSelectedPizza } from './pizzas.selector';
-import * as ToppingsReducer from '@products/store/reducers/toppings.reducer';
+import * as ToppingsReducer from '@products/store/reducers/toppings/toppings.reducer';
 
 
 export const getToppingsState = createSelector(

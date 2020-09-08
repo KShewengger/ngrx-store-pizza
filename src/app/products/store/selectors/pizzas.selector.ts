@@ -2,7 +2,7 @@ import { createSelector } from '@ngrx/store';
 
 import { getRouterState } from '@index/store';
 import { getProductsState } from '@products/store/reducers';
-import * as PizzasReducer from '@products/store/reducers/pizzas.reducer';
+import * as PizzasReducer from '@products/store/reducers/pizzas/pizzas.reducer';
 
 import { Pizza, ProductsState } from '@products/models';
 
