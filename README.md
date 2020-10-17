@@ -7,9 +7,10 @@
 #### How to run:
 
 ```
-$ npm install               - Installs dependencies
-$ npm run mock:server       - Run Mock Server (live at http://localhost:3000)
-$ npm start                 - Run Angular on different terminal (live at http://localhost:4200)
+$ npm install                   - Installs dependencies
+$ npm install -g json-server    - Install json-server globally
+$ npm run mock:server           - Run Mock Server (live at http://localhost:3000)
+$ npm start                     - Run Angular on different terminal (live at http://localhost:4200)
 ```
 
 
